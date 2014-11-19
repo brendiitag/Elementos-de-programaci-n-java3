@@ -5,29 +5,65 @@
  */
 package com.mycompany.maven.mvc;
 
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
 /**
  *
  * @author T
  */
-public class Direccion {
+@Entity
+@Table(name = "direccion")
+
+public class Direccion implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "ID_DIRECCION")
+    private Integer idDireccion;
+    @Column(name = "CALLE")
     private String calle;
-    private long cp;
+    @Column(name = "COLONIA")
     private String colonia;
+    @Column(name = "ESTADO")
     private String estado;
+    @Column(name = "CP")
+    private String CP;
+    @ManyToOne
+    private Usuario idUsuario;
 
-    @Override
-    public String toString() {
-        return "Direccion{" + "calle=" + calle + ", cp=" + cp + ", colonia=" + colonia + ", estado=" + estado + '}';
+    public void setCP(String CP) {
+        this.CP = CP;
     }
-
-    public Direccion(String calle, long cp, String colonia, String estado) {
-        this.calle = calle;
-        this.cp = cp;
-        this.colonia = colonia;
-        this.estado = estado;
-    }
-
+    
     public Direccion() {
+    }
+
+    public Direccion(Integer idDireccion) {
+        this.idDireccion = idDireccion;
+    }
+
+    public Integer getIdDireccion() {
+        return idDireccion;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setIdDireccion(Integer idDireccion) {
+        this.idDireccion = idDireccion;
     }
 
     public String getCalle() {
@@ -36,14 +72,6 @@ public class Direccion {
 
     public void setCalle(String calle) {
         this.calle = calle;
-    }
-
-    public long getCp() {
-        return cp;
-    }
-
-    public void setCp(long cp) {
-        this.cp = cp;
     }
 
     public String getColonia() {
@@ -61,6 +89,30 @@ public class Direccion {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idDireccion != null ? idDireccion.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Direccion)) {
+            return false;
+        }
+        Direccion other = (Direccion) object;
+        if ((this.idDireccion == null && other.idDireccion != null) || (this.idDireccion != null && !this.idDireccion.equals(other.idDireccion))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.mycompany.maven.mvc.Direccion[ idDireccion=" + idDireccion + " ]";
+    }
     
 }

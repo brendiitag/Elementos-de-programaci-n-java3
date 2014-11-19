@@ -8,5 +8,9 @@
     <property name="hibernate.connection.username">root</property>
     <mapping class="com.mycompany.maven.mvc.Trabajador"></mapping>
     <mapping class="com.mycompany.maven.mvc.Trabajador"></mapping>
+    <mapping class="com.mycompany.maven.mvc.Usuario"></mapping>
+     <mapping class="com.mycompany.maven.mvc.Direccion"></mapping>
+    
+    
   </session-factory>
 </hibernate-configuration>
