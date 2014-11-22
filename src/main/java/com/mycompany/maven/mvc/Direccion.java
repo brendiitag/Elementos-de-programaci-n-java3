@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Direccion implements Serializable {
     private String estado;
     @Column(name = "CP")
     private String CP;
+    @JsonIgnore
     @ManyToOne
     private Usuario idUsuario;
 

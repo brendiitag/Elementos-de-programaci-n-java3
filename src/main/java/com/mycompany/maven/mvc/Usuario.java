@@ -16,6 +16,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Usuario implements Serializable {
     @Column(name = "SALDO")
     private Float saldo;
     @OneToOne(mappedBy = "idUsuario")
+    @JsonIgnore
     private Direccion direccion;
 
     public Usuario() {
@@ -120,6 +122,10 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "com.mycompany.maven.mvc.Usuario[ idUsuario=" + idUsuario + " ]";
+    }
+
+    Object getDireccionList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

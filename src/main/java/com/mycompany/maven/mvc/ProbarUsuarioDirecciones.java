@@ -14,8 +14,12 @@ import org.hibernate.Transaction;
  * @author T
  */
 public class ProbarUsuarioDirecciones {
-    public static void main (String[] args){
-        SessionFactory factory= HibernateUtilidades.getSessionFactory();
+    public static void main (String[] args)throws Exception{
+        DAOUsuarioImpl du=new DAOUsuarioImpl();
+        System.out.println(du.obtenerTodos());
+        
+        
+        /*SessionFactory factory= HibernateUtilidades.getSessionFactory();
         Session sesion= factory.openSession();
         Transaction tranza= sesion.beginTransaction();
         
@@ -39,7 +43,7 @@ public class ProbarUsuarioDirecciones {
         
         tranza.commit();
         sesion.close();
-        System.out.println("todo se guardo bien!!");
+        System.out.println("todo se guardo bien!!");*/
         
     }
     
