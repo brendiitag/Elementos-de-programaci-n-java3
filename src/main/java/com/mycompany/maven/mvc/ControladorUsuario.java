@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ControladorUsuario {
     
     //primero hacemos el get
-    @RequestMapping(value="/usuario", method=RequestMethod.GET, headers={"Accept=text/html"})
+    @RequestMapping(value="/malo", method=RequestMethod.GET, headers={"Accept=text/html"})
     public@ResponseBody String usuarioConGet(){
         
         return "Este es mi primer controller con un json";
     }
     //crear un metodo get para dos usuarios que me devuelva todosssss
     
-    @RequestMapping(value="/cliente",method=RequestMethod.GET,headers={"Accept=Application/json"})
+    @RequestMapping(value="/usuario",method=RequestMethod.GET,headers={"Accept=Application/json"})
     public @ResponseBody String obtenerMuchos()throws Exception{
         //VAMOS A USAR LA IMPLEMENTACION DE JASON PARA JAVA DE FASTERXML O CODEHOUSE
-         ObjectMapper mapper=new ObjectMapper();
+
         
-        return mapper.writeValueAsString(DAOUsuariosImpl.obtenerClientes());
+        return GenerarUsuarios.obtenerUsuario();
 
 }
     

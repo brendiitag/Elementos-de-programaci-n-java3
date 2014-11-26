@@ -23,13 +23,12 @@ public class ConotroladorHola {
     }
     //crear un metodo get para dos usuarios que me devuelva todosssss
     
-    @RequestMapping(value="/usuario",method=RequestMethod.GET,headers={"Accept=Application/json"})
-    public @ResponseBody String obtenerTodos()throws Exception{
+    //@RequestMapping(value="/usuario",method=RequestMethod.GET,headers={"Accept=Application/json"})
+    //public @ResponseBody String obtenerTodos()throws Exception{
         //VAMOS A USAR LA IMPLEMENTACION DE JASON PARA JAVA DE FASTERXML O CODEHOUSE
-         ObjectMapper mapper=new ObjectMapper();
+        // ObjectMapper mapper=new ObjectMapper();
         
-        return mapper.writeValueAsString(GenerarUsuarios.obtenerUsuario());
+       // return mapper.writeValueAsString(GenerarUsuarios.obtenerUsuario());
 
 }
-    
-}
+ 

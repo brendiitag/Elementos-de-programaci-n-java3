@@ -6,6 +6,8 @@
 package com.mycompany.maven.mvc;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -25,13 +27,14 @@ public class DAOUsuarioImpl {
         
         Criteria cri=sesion.createCriteria(Usuario.class);
         ArrayList<Usuario> usuarios= (ArrayList<Usuario>)cri.list();
-        System.out.println(usuarios.get(0).getDireccionList().get(0).getEstado());
+        Map<String, ArrayList<Usuario>> singletonMap =Collections.singletonMap("usuarios",usuarios);
+        //System.out.println(usuarios.get(0).getDireccionList().get(0).getEstado());
         ObjectMapper mapper=new ObjectMapper();
         
         tranza.commit();
         sesion.close();
         
-        return mapper.writeValueAsString(usuarios);
+        return mapper.writeValueAsString(singletonMap);
     }
     
 }
