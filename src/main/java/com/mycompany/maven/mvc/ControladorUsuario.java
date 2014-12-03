@@ -26,6 +26,10 @@ public class ControladorUsuario {
     @RequestMapping(value="/usuario",method=RequestMethod.GET,headers={"Accept=Application/json"})
     public @ResponseBody String obtenerMuchos()throws Exception{
         //VAMOS A USAR LA IMPLEMENTACION DE JASON PARA JAVA DE FASTERXML O CODEHOUSE
+        @RequestMapping(value="/usuario/{id}",method=RequestMethod.GET,headers={"Accept=Application/json"})
+    public @ResponseBody String obtenerMuchos()throws Exception{
+        DAOUsuarioImpl d=new DAOUsuarioImpl();
+    }
 
         
         return GenerarUsuarios.obtenerUsuario();
